@@ -1,0 +1,7 @@
+--- # Ansible roles to download
+
+# Download from Ansible Galaxy
+- src: axelitus.common
+- src: axelitus.composer
+- src: axelitus.nginx
+- src: axelitus.php
