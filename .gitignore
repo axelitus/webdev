@@ -1,3 +1,4 @@
+/.ansible/roles
 /.idea
 /.vagrant
 /*.log
