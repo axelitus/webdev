@@ -1,6 +1,6 @@
+/.ansible/*.log
+/.ansible/*.retry
 /.ansible/roles
 /.idea
 /.vagrant
 /*.log
-/vagrant/*.log
-/vagrant/ansible/*.retry
