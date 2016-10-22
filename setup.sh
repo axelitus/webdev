@@ -38,7 +38,7 @@ if [ "$frmwrk" != "" ]; then
 		cmd=$cmd" src"
 
 		# To install a framework we need to have an empty src folder
-		rm -rf src/public
+		rm -rf src/.gitkeep
 
 		# Execute framework command
 		#eval $cmd
