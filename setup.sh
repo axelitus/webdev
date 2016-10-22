@@ -1,4 +1,18 @@
 #!/bin/bash
+
+# If not a repo then make it a repo
+if [ ! -d "./.git" ]; then
+	# Initialize git repo
+	git init
+
+	# Cleanup README file
+	rm README.md && touch README.md
+
+	# Add README file and execute first commit
+git add README.md && git commit -m "First commit"
+
+fi
+
 # Install required roles from roles.yml file
 ansible-galaxy install --roles-path ./.ansible/roles -r ./.ansible/roles.yml
 
