@@ -4,7 +4,7 @@ A scaffold to setup a web development project's environment automatically.
 
 To install just run this on your terminal:
 
-```
+```bash
 git clone --depth 1 https://github.com/axelitus/webdev.git && rm -rf ./webdev/.git
 ```
 
@@ -12,7 +12,7 @@ This will download all necessary files to the folder *webdev* and remove all git
 
 After that, run this command inside your target folder (e.g. webdev) to set everything up:
 
-```
+```bash
 ./setup.sh <framework> <version>
 ```
 
