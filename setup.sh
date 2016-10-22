@@ -8,13 +8,18 @@ if [ ! -d "./.git" ]; then
 	git init
 
 	# Cleanup README and LICENSE file
-	rm README.md LICENSE.md && touch README.md
+	rm -f README.md LICENSE.md && touch README.md
 
 	# Commit the core files
 	git add README.md .gitignore Vagrantfile .ansible && git commit -m "First commit"
 fi
 
+# Cleanup the ansible roles folder
+echo "Cleaning ansible roles folder..."
+rm -rf ./.ansible/roles
+
 # Install required roles from roles.yml file
+echo "Installing ansible roles to provision with vagrant..."
 ansible-galaxy install --roles-path ./.ansible/roles -r ./.ansible/roles.yml
 
 # If an argument was given install the requested framework through composer
@@ -43,7 +48,7 @@ if [ "$frmwrk" != "" ]; then
 
 		# Execute framework command
 		#eval $cmd
-		echo "Running command: $cmd"
+		echo "Installing framework running command: $cmd"
 		eval $cmd
 
 		echo "Committing framework files..."
@@ -61,4 +66,4 @@ rm ./setup.sh
 echo "Vagrant up..."
 vagrant up
 
-echo "Finished!"
+echo "WebDev Finished!"
