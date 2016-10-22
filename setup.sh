@@ -2,15 +2,16 @@
 
 # If not a repo then make it a repo
 if [ ! -d "./.git" ]; then
+	echo "Setting up git..."
+
 	# Initialize git repo
 	git init
 
-	# Cleanup README file
-	rm README.md && touch README.md
+	# Cleanup README and LICENSE file
+	rm README.md LICENSE.md && touch README.md
 
-	# Add README file and execute first commit
-git add README.md && git commit -m "First commit"
-
+	# Commit the core files
+	git add README.md .gitignore Vagrantfile .ansible && git commit -m "First commit"
 fi
 
 # Install required roles from roles.yml file
@@ -42,8 +43,11 @@ if [ "$frmwrk" != "" ]; then
 
 		# Execute framework command
 		#eval $cmd
-		echo "Running: $cmd"
+		echo "Running command: $cmd"
 		eval $cmd
+
+		echo "Committing framework files..."
+		git add src && git commit -m "Added framework ${frmwrk}"
 	else
 		echo "Unsupported framework, no changes made..."
 	fi
@@ -54,5 +58,7 @@ echo "Removing setup script..."
 rm ./setup.sh
 
 # Load virtual machine to provision with vagrant
-echo "Vagrant up!"
+echo "Vagrant up..."
 vagrant up
+
+echo "Finished!"
