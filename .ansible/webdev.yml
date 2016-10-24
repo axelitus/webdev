@@ -6,6 +6,7 @@
       apt: upgrade=dist update_cache=yes
   roles:
     - axelitus.common
+    - axelitus.mysql
     - axelitus.php
     - axelitus.composer
     - axelitus.nginx

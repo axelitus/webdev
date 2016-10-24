@@ -3,5 +3,6 @@
 # Download from Ansible Galaxy
 - src: axelitus.common
 - src: axelitus.composer
+- src: axelitus.mysql
 - src: axelitus.nginx
 - src: axelitus.php
