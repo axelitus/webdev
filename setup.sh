@@ -14,14 +14,6 @@ if [ ! -d "./.git" ]; then
 	git add README.md .gitignore Vagrantfile .ansible && git commit -m "First commit"
 fi
 
-# Cleanup the ansible roles folder
-echo "Cleaning ansible roles folder..."
-rm -rf ./.ansible/roles
-
-# Install required roles from roles.yml file
-echo "Installing ansible roles to provision with vagrant..."
-ansible-galaxy install --roles-path ./.ansible/roles -r ./.ansible/roles.yml
-
 # If an argument was given install the requested framework through composer
 frmwrk=$1
 version=$2
