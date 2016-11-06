@@ -1,18 +1,22 @@
 #!/bin/bash
 
-# If not a repo then make it a repo
-if [ ! -d "./.git" ]; then
-	echo "Setting up git..."
-
-	# Initialize git repo
-	git init
-
-	# Cleanup README and LICENSE file
-	rm -f README.md LICENSE.md && touch README.md
-
-	# Commit the core files
-	git add README.md .gitignore Vagrantfile .ansible && git commit -m "First commit"
+# Do git folder cleanup
+if [ -d "./.git" ]; then
+	rm -rf ./.git
 fi
+
+# Create new git repo and add first files
+echo "Setting up git..."
+
+# Initialize git repo
+git init
+
+# Cleanup README and LICENSE file
+rm -f README.md LICENSE.md && touch README.md
+
+# Commit the core files
+git add README.md .gitignore Vagrantfile .ansible && git commit -m "First commit"
+
 
 # If an argument was given install the requested framework through composer
 frmwrk=$1
